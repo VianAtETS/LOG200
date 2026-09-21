@@ -2,8 +2,7 @@
 
 #show: document.with(
   title: "Exercice 1",
-  subtitle: [Pile implémentée avec une liste simplement chaînée],
-  slug: "semaine_03-exercice_01",
+  subtitle: "Pile implémentée avec une liste simplement chaînée",
 )
 
 = Énoncé
@@ -16,17 +15,17 @@ Nous  avons  vu  en  classe  les  différents  algorithmes  pour  une  pile. Ces
 
   ```
   EstVide(pile)
-      retourner pile.tete = null
+    retourner pile.tete = null
   ```
 
 + `Push`
 
   ```
   Push(pile, x)
-      n ← nouveau Noeud
-      n.valeur ← x
-      n.suivant ← pile.tete
-      pile.tete ← n
+    n ← nouveau Noeud
+    n.valeur ← x
+    n.suivant ← pile.tete
+    pile.tete ← n
   ```
 
 #remarque[L'ordre des deux dernières instructions est important. Si `pile.tete` était modifiée en premier, la référence vers l'ancienne liste serait perdue.]
@@ -35,11 +34,11 @@ Nous  avons  vu  en  classe  les  différents  algorithmes  pour  une  pile. Ces
 
   ```
   Pop(pile)
-      si EstVide(pile)
-          erreur \"pile vide\"
-      x ← pile.tete.valeur
-      pile.tete ← pile.tete.suivant
-      retourner x
+    si EstVide(pile)
+        erreur \"pile vide\"
+    x ← pile.tete.valeur
+    pile.tete ← pile.tete.suivant
+    retourner x
   ```
 
 = Exemples

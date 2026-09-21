@@ -16,6 +16,8 @@
   }
 }
 
+// `subtitle` est une chaîne et non du contenu : site/build.sh le relit avec
+// `typst query` pour construire l'index, ce qui exclut les formules.
 #let document(
   title: "",
   subtitle: none,
@@ -23,9 +25,15 @@
   student: "Vianney Veremme",
   term: "Automne 2026",
   date: datetime.today().display("[year]-[month]-[day]"),
-  slug: "document", // nom du fichier sur le site (slug.html, slug.pdf)
   body,
 ) = {
+  // Nom du fichier sur le site (slug.html, slug.pdf). Il vient du chemin du
+  // fichier, que site/build.sh passe avec --input slug=...
+  let slug = sys.inputs.at("slug", default: "document")
+
+  // Lu par site/build.sh (typst query) pour générer l'index du site.
+  [#metadata((title: title, subtitle: subtitle)) <exercice>]
+
   set std.document(title: title, author: student)
   set text(font: "New Computer Modern", size: 11pt, lang: "fr")
   set par(justify: true, leading: 0.65em, spacing: 1.2em)
