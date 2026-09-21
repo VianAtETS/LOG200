@@ -16,9 +16,6 @@
   }
 }
 
-// Algorithme en pseudo-code : un bloc de code sans coloration.
-#let algo(body) = raw(block: true, lang: none, body)
-
 #let document(
   title: "",
   subtitle: none,
@@ -68,7 +65,10 @@
 
     align(center)[
       #text(size: 20pt, weight: "bold", fill: _blue, title)
-      #if subtitle != none { linebreak(); text(size: 13pt, fill: _blue, subtitle) }
+      #if subtitle != none {
+        linebreak()
+        text(size: 13pt, fill: _blue, subtitle)
+      }
       #v(0.3em)
       #line(length: 40%, stroke: 1.2pt + _red)
       #v(0.3em)
