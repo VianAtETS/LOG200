@@ -1,17 +1,39 @@
 {
-    "name": "Template Development Container",
-    "image": "mcr.microsoft.com/devcontainers/base:bookworm",
-    "customizations": {
-        "settings": {
-            "terminal.integrated.shell.linux": "/bin/bash"
+    "name": "LOG200 - Java",
+    "image": "mcr.microsoft.com/devcontainers/base:trixie",
+    "features": {
+        "ghcr.io/devcontainers/features/java:1": {
+            "version": "latest",
+            "jdkDistro": "tem"
         },
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "lts"
+        },
+        "ghcr.io/devcontainers/features/github-cli:1": {
+            "version": "latest"
+        },
+        "ghcr.io/anthropics/devcontainer-features/claude-code:1": {}
+    },
+    "mounts": [
+        "source=log200-claude,target=/home/vscode/.claude,type=volume",
+        "source=log200-gh,target=/home/vscode/.config/gh,type=volume"
+    ],
+    "containerEnv": {
+        "CLAUDE_CONFIG_DIR": "/home/vscode/.claude"
+    },
+    "postCreateCommand": "sudo chown -R vscode:vscode /home/vscode/.claude /home/vscode/.config/gh",
+    "customizations": {
         "vscode": {
             "extensions": [
+                "vscjava.vscode-java-pack",
+                "anthropic.claude-code",
                 "ms-vscode.atom-keybindings",
-                "ms-vscode-remote.remote-containers",
-                "ms-azuretools.vscode-docker",
                 "myriad-dreamin.tinymist"
-            ]
+            ],
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "java.configuration.updateBuildConfiguration": "automatic"
+            }
         }
     },
     "remoteUser": "vscode"

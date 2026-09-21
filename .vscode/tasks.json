@@ -2,6 +2,15 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "Run current Java file",
+            "type": "shell",
+            "command": "java",
+            "args": ["${file}"],
+            "options": { "cwd": "${fileDirname}" },
+            "problemMatcher": [],
+            "group": { "kind": "build", "isDefault": true }
+        },
+        {
             "label": "Delete old Git branches",
             "type": "shell",
             "linux": {
