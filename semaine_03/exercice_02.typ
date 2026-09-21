@@ -20,3 +20,17 @@ InverserTableau(ensemble, n)
   pour i de 1 à n / 2          // division entière
     ensemble[i] ↔ ensemble[n + 1 - i]
 ```
+
+== Liste simplement chaînée
+
+```
+InverserChaine(liste)
+  precedent ← null
+  courant ← liste.tete
+  tant que courant ≠ null
+    suivant ← courant.suivant      // 1. sauvegarder la suite
+    courant.suivant ← precedent    // 2. retourner la flèche
+    precedent ← courant            // 3. avancer
+    courant ← suivant
+  liste.tete ← precedent           // precedent est le dernier nœud vu
+```
