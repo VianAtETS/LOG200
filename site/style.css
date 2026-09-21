@@ -1,0 +1,188 @@
+/* Single stylesheet for the site: index.html and the HTML produced by Typst.
+   Typst emits no styling; the .callout/.title classes come from template.typ. */
+
+:root {
+  --bg: #ffffff;
+  --text: #1b1f24;
+  --muted: #5b6470;
+  --blue: #003087;
+  --red: #da291c;
+  --line: #d5dae0;
+  --surface: #f4f6f8;
+  --todo: #fff4e5;
+  --todo-line: #e8a33d;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14171b;
+    --text: #e3e6ea;
+    --muted: #9aa3ad;
+    --blue: #8fb0ff;
+    --line: #333a42;
+    --surface: #1d2127;
+    --todo: #33280f;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 50rem;
+  padding-block: 2rem 4rem;
+  padding-inline: 1rem;
+  background: var(--bg);
+  color: var(--text);
+  font: 1rem/1.65 "Latin Modern Roman", "New Computer Modern", Georgia, serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--blue);
+  line-height: 1.25;
+  margin-top: 2em;
+}
+
+.title h1,
+.title h2 {
+  margin-top: 0;
+  font-size: 2rem;
+}
+
+.title {
+  border-bottom: 2px solid var(--red);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 1.15rem;
+  margin-top: 0.25rem;
+}
+
+a {
+  color: var(--blue);
+}
+
+nav {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+code,
+pre {
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 0.9em;
+}
+
+code {
+  background: var(--surface);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+pre {
+  background: var(--surface);
+  padding: 0.8em 1em;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-block: 1rem;
+  display: block;
+  overflow-x: auto;
+}
+
+th,
+td {
+  border: 1px solid var(--line);
+  padding: 0.4em 0.6em;
+  text-align: left;
+  vertical-align: top;
+}
+
+tr:nth-child(even) td {
+  background: var(--surface);
+}
+
+.callout {
+  background: var(--surface);
+  border-left: 3px solid var(--line);
+  padding: 0.6em 1em;
+  margin-block: 1rem;
+  border-radius: 3px;
+}
+
+.callout.decision {
+  border-left-color: var(--blue);
+}
+
+.callout.todo {
+  background: var(--todo);
+  border-left-color: var(--todo-line);
+}
+
+/* Diagrams are SVGs painted black on a transparent background: give them a
+   light background, otherwise they vanish in dark mode. */
+/* !important: html.frame sets width/height as inline style, which beats the CSS. */
+svg {
+  width: 100% !important;
+  max-width: 43em;
+  height: auto !important;
+  background: #fff;
+  border-radius: 4px;
+}
+
+blockquote {
+  border-left: 3px solid var(--line);
+  margin-inline: 0;
+  padding-left: 1em;
+  color: var(--muted);
+}
+
+.cards {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.cards li {
+  border: 1px solid var(--line);
+  padding: 0.9rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.2rem 1rem;
+}
+
+.cards li span {
+  color: var(--muted);
+  grid-column: 1;
+}
+
+.cards .pdf {
+  grid-row: 1 / span 2;
+  grid-column: 2;
+  align-self: center;
+}
+
+footer {
+  margin-top: 3rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}

@@ -21,7 +21,7 @@
     "containerEnv": {
         "CLAUDE_CONFIG_DIR": "/home/vscode/.claude"
     },
-    "postCreateCommand": "sudo chown -R vscode:vscode /home/vscode/.claude /home/vscode/.config/gh",
+    "postCreateCommand": "sudo chown -R vscode:vscode /home/vscode/.claude /home/vscode/.config/gh && sh .devcontainer/install-typst.sh",
     "customizations": {
         "vscode": {
             "extensions": [
