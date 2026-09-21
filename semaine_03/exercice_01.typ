@@ -10,6 +10,8 @@
 
 Nous  avons  vu  en  classe  les  différents  algorithmes  pour  une  pile. Ces algorithmes  utilisaient  un  tableau  pour  implémenter  une  pile.    Écrire  les algorithmes  `EstVide(pile)`,  `Push(pile,x)`  et  `Pop(pile)`  dans  le  contexte d'une  liste simplement  chaînée.
 
+#line(length: 100%)
+
 + `EstVide`
 
   ```
