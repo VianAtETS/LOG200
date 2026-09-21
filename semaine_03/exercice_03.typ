@@ -2,7 +2,7 @@
 
 #show: document.with(
   title: "Exercice 3",
-  subtitle: "Fusionner deux tableaux triées en complexité O(N+M)",
+  subtitle: "Fusionner deux tableaux triés en complexité O(N+M)",
 )
 
 = Énoncé
@@ -22,12 +22,13 @@ class Solution {
         int index2 = n - 1;
 
         while (index2 >= 0) {
-            if (index1 >= 0 && nums1[index1] > nums2[index2]) {
+            if (index1 >= 0 && nums1[index1] > nums2[index2])
                 nums1[pindex--] = nums1[index1--];
-            } else {
+            else
                 nums1[pindex--] = nums2[index2--];
-            }
         }
     }
 }
 ```
+
+#remarque[`nums1` jour le rôle de `T3`, initialement rempli avec `T1` et de la place libre pour `T2`.]
