@@ -7,18 +7,18 @@
 
 = Énoncé
 
-Nous  avons  vu  en  classe  les  différents  algorithmes  pour  une  pile. Ces algorithmes  utilisaient  un  tableau  pour  implémenter  une  pile.    Écrire  les algorithmes  `EstVide(pile)`,  `Push(pile,x)`  et  `Pop(pile)`  dans  le  contexte d'une  liste simplement  chaînée.
+Nous avons vu en classe les différents algorithmes pour une pile. Ces algorithmes utilisaient un tableau pour implémenter une pile. Écrire les algorithmes `EstVide(pile)`, `Push(pile,x)` et `Pop(pile)` dans le contexte d'une liste simplement chaînée.
 
 #line(length: 100%)
 
-+ `EstVide`
+- `EstVide`
 
   ```
   EstVide(pile)
     retourner pile.tete = null
   ```
 
-+ `Push`
+- `Push`
 
   ```
   Push(pile, x)
@@ -30,7 +30,7 @@ Nous  avons  vu  en  classe  les  différents  algorithmes  pour  une  pile. Ces
 
 #remarque[L'ordre des deux dernières instructions est important. Si `pile.tete` était modifiée en premier, la référence vers l'ancienne liste serait perdue.]
 
-+ `Pop`
+- `Pop`
 
   ```
   Pop(pile)
