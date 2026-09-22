@@ -6,6 +6,7 @@
 )
 
 = Énoncé
+
 Considérer 2 tableaux triés `T1[1..N]` et `T2[1..M]`. Écrire un algorithme qui crée un
 troisième tableau `T3[1..N+M]` qui est aussi trié. La complexité de votre algorithme
 doit être en $O(N plus M)$.
